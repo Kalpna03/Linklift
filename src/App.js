@@ -1,12 +1,15 @@
 import React, { useState } from "react";
 import { MapContainer, TileLayer, Marker, Popup, Polyline } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
-import RideOptions from "./components/RideOptions";
+import RideOptionCard from "./components/RideOptionCard"; // Import RideOptionCard
 import PickupForm from "./components/PickupForm";
 import ConfirmationContainer from "./components/ConfirmationContainer";
 import L from "leaflet";
 import pickupIconUrl from "./location-icon.png";
 import dropIconUrl from "./location-icon.png";
+import autoImage from "./Linklift-Auto.jpg"; // Import auto image
+import carImage from "./Linklift-Car2.jpg"; // Import car image
+import erickshawImage from "./Linklift-Erickshaw.jpg"; // Import e-rickshaw image
 import './App.css';
 
 const pickupIcon = new L.Icon({
@@ -30,10 +33,32 @@ function App() {
   const [confirmRide, setConfirmRide] = useState(false);
 
   const findRide = () => {
+    // Mock ride options data
     const mockRideOptions = [
-      { vehicleNumber: "ABC123", vehicleInfo: "Toyota Camry", amount: "$20", imageSrc: "toyota_camry_image_url.jpg" },
-      { vehicleNumber: "XYZ456", vehicleInfo: "Honda Civic", amount: "$15", imageSrc: "toyota_camry_image_url.jpg" },
-      { vehicleNumber: "DEF789", vehicleInfo: "Ford Mustang", amount: "$25", imageSrc: "toyota_camry_image_url.jpg" },
+      {
+        id: 1,
+        vehicleType: "Linklift Auto",
+        vehicleInfo: "Linklift Auto",
+        amount: 100,
+        estimatedTime: "5 mins",
+        imageSrc: autoImage // Use imported auto image
+      },
+      {
+        id: 2,
+        vehicleType: "Linklift Car",
+        vehicleInfo: "Linklift Car",
+        amount: 200,
+        estimatedTime: "8 mins",
+        imageSrc: carImage // Use imported car image
+      },
+      {
+        id: 3,
+        vehicleType: "E Rickshaw",
+        vehicleInfo: "Linklift Erickshaw",
+        amount: 150,
+        estimatedTime: "6 mins",
+        imageSrc: erickshawImage // Use imported e-rickshaw image
+      },
     ];
     setRideOptions(mockRideOptions);
     setShowRideOptions(true);
@@ -55,10 +80,15 @@ function App() {
   return (
     <div className="App">
       {showRideOptions ? (
-        <RideOptions
-          rideOptions={rideOptions}
-          onSelectRideOption={handleSelectRideOption}
-        />
+        <div className="ride-options-container">
+          {rideOptions.map((rideOption) => (
+            <RideOptionCard
+              key={rideOption.id}
+              rideOption={rideOption}
+              onSelectRideOption={handleSelectRideOption}
+            />
+          ))}
+        </div>
       ) : (
         <PickupForm
           pickupLocation={pickupLocation}
@@ -102,4 +132,7 @@ function App() {
 }
 
 export default App;
+
+
+ 
 
