@@ -1,4 +1,4 @@
-import React from "react";
+ import React from "react";
 
 function PickupForm({ pickupLocation, dropLocation, date, seats, onPickupLocationChange, onDropLocationChange, onDateChange, onSeatsChange, onFindRide }) {
   return (
@@ -47,3 +47,5 @@ function PickupForm({ pickupLocation, dropLocation, date, seats, onPickupLocatio
 }
 
 export default PickupForm;
+
+       
