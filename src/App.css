@@ -30,7 +30,7 @@ body {
   width: 300px; 
   height:200c;
   padding: 20px; 
-  background-color:rgb(159, 239, 235); 
+  background-color:rgb(44, 237, 231); 
   border-radius: 20px; 
   z-index: 1; 
 }
@@ -49,6 +49,7 @@ body {
   border-radius: 10px; 
   box-shadow: 0 0 10px rgba(19, 137, 96, 0.1); 
   margin-right: 2rem; 
+  
 }
 
 .pickup-location,.date,.seats,
@@ -107,16 +108,28 @@ button:hover {
 
 .ride-option {
   margin-bottom: 20px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+
 }
 
 .ride-option-image {
-  width: 100px; /* Adjust the width as needed */
-  height: auto; /* Maintain aspect ratio */
-  margin-right: 20px; /* Add some space between the image and details */
+  width: 100px; 
+  height: auto; 
+  
+}
+.ride-option-image-container {
+  flex-shrink: 0;
+  margin-right: 20px;
 }
 
 .ride-option-details {
-  flex-grow: 1; /* Allow details to grow and fill remaining space */
+  flex-grow: 1; 
 }
 
 .ride-option h3 {
@@ -125,6 +138,9 @@ button:hover {
 
 .ride-option p {
   margin: 0;
+}
+.ride-option:hover {
+  background-color: #f4f4f4;
 }
 
 .ride-option button {
@@ -139,3 +155,5 @@ button:hover {
 .ride-option button:hover {
   background-color: #0056b3;
 }
+
+
